@@ -1,4 +1,9 @@
-#Dumfries_Dashboard_TeamA
+#Dumfries & Galloway Dashboard
+
+This is the Crichton Institute economic dashboard for the area of Dumfries and Galloway.
+This dashboard aims to provide a comprehensive and easy-to-use overview of the economic situation in Dumfries and Galloway.
+
+Developed by Isaac Jordan, Lewis Dicks, Praxitelis Kourtellos, Takis Nicolaides, Rostislav Yordanov, and Michael Byars as part of University of Glasgow Level 3 Team Project.
 
 ##Creating environment
 To create virtual environment
