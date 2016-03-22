@@ -1,0 +1,65 @@
+{% verbatim %}
+<div class="panel panel-default" ng-if="widget.trends">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-8"><h5>{{ widget.name }} Statistics</h5></div>
+            <div class="col-sm-4">
+                <div class="pull-right">
+                    <a title="Information" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="Source: <a href='{{ widget.sourceLink }}' target='_blank'>{{ widget.sourceName }}</a>" ng-click="showPopover($event)"><i class="glyphicon glyphicon-info-sign"></i></a>
+                    <a title="Remove widget" ng-click="deleteWidget($index)"><span class="glyphicon glyphicon-remove"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <p>Maximum: {{ widget.trends.maxY.y | number:1 }} at {{ getStringFromPossibleDateTime(widget.trends.maxY.x) }}</p>
+        <p>Minimum: {{ widget.trends.minY.y | number:1 }} at {{ getStringFromPossibleDateTime(widget.trends.minY.x) }}</p>
+        
+        <div ng-repeat="analysis in widget.trends.analysis">
+            <h3>{{ analysis.name }} Line Statistics</h3>
+        
+            <p ng-if="analysis.lastMonth">
+                Change on last month:
+                <span ng-if="analysis.lastMonth > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analyis.lastMonth < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.lastMonth }}% 
+            </p>
+            
+            <p ng-if="analysis.last3Months">
+                Change on last 3 months:
+                <span ng-if="analysis.last3Months > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analysis.last3Months < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.last3Months }}%
+            </p>
+            
+            <p ng-if="analysis.last6Months">
+                Change on last 6 months: 
+                <span ng-if="analysis.last6Months > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analysis.last6Months < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.last6Months }}%
+            </p>
+            
+            <p ng-if="analysis.lastYear">
+                Change on last year:
+                <span ng-if="analysis.lastYear > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analysis.lastYear < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.lastYear }}%
+            </p>
+            
+            <p ng-if="analysis.last3Years">
+                Change on last 3 years:
+                <span ng-if="analysis.last3Years > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analysis.last3Years < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.last3Years }}%
+            </p>
+            
+            <p ng-if="analysis.last5Years">
+                Change on last 5 years:
+                <span ng-if="analysis.last5Years > 0" class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                <span ng-if="analysis.last5Years < 0" class="glyphicon glyphicon-chevron-down" style="color:blue"></span>
+                {{ analysis.last5Years }}%
+            </p>
+        </div>
+    </div>
+</div>
+{% endverbatim %}

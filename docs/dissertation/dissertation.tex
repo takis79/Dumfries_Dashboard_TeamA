@@ -1,0 +1,224 @@
+% This example An LaTeX document showing how to use the l3proj class to
+% write your report. Use pdflatex and bibtex to process the file, creating 
+% a PDF file as output (there is no need to use dvips when using pdflatex).
+
+% Modified 
+
+\documentclass{l3proj}
+
+\begin{document}
+
+\title{Team Project(H) Dissertation: Team A}
+
+\author{Lewis Dicks - 2085749 \\
+        Isaac Jordan - 2080466 \\
+        Praxitelis (Branko) Kourtellos - 2060408 \\
+        Christos (Takis) Nicolaides - 2084564  \\
+        Rostislav Yordanov - 2074214 \\
+        Michael Byars - 2028262}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+
+For the first time at the University of Glasgow, the team project undertaken in the third year of a Computing Science
+degree involves a real life customer, where previously students undertook projects for individuals lecturers in the
+department. This was also the first year in which the Team Project was combined with the Professional Software
+Development course as previously students were involved in two team projects, this is now one team with one project that
+incorporates techniques learned from the Professional Software Development course. Students worked with institutions
+based in the Dumfries and Galloway area of Scotland, such as the Crichton Regional Observatory, the NHS and the third
+sector. For our team's project, we were asked to create an interactive dashboard of various economic indicators that
+would be integrated into the Crichton's homepage. This paper presents a case study of the nature of our project and
+reflects on our experiences relating to software engineering practices and principles.
+
+\end{abstract}
+
+%% Comment out this line if you do not wish to give consent for your
+%% work to be distributed in electronic format.
+\educationalconsent
+
+\newpage
+
+%==============================================================================
+\section{Introduction}
+
+This project report covers a 7 month University of Glasgow third year project. For 
+our team's project, we were asked to create an interactive dashboard of various 
+economic indicators that would be integrated into the Crichton Institutes's homepage. The idea behind this project is to provide an easy to access/instant
+visualisation of key economic data that allows businesses, agencies etc, to gain a snapshot of the current state of the
+regional economy without having to trawl through lots of data links. Our project was built using the Python-based Django
+framework as the team had previous university experience building web applications using this so it was relatively
+straightforward to begin developing the initial components of the back-end of the website. In addition to this we used
+many JavaScript-based front end technologies such as Angular JS~\cite{AngularWebpage}, d3~\cite{d3Webpage} and Gridster.
+
+
+
+
+%% Final paragraph.
+The rest of the case study is structured as follows.  Section
+\ref{sec:background} presents the background of the case study
+discussed, describing the customer and project context, aims and
+objectives and project state at the time of writing.  Sections
+Bleh through Section Blah discuss issues that
+arose during the project...
+
+%==============================================================================
+\section{Case Study Background} \label{sec:background}
+
+Include details of 
+
+\begin{itemize}
+\item The customer organisation and background.
+\item The rationale and initial objectives for the project.
+\item The final software was delivered for the customer.
+\end{itemize}
+
+% This is the background I obtained from Trac - Lewis
+
+Crichton Institute (CI)~\cite{CrichtonInstitute} was launched in January 2013. It is a unique collaborative venture between the Crichton Campus academic
+institutions and wider partners in the business, local government, health and voluntary sectors.
+
+CI is a focal point for all aspects of research and development relating to south-west Scotland with the view to understanding the
+issues that constrain the region, to develop an evidence base for its economic, social and cultural development and to raise its
+national and international profile. Crichton Institute works through a series of inter-related activities: Research,
+Business Intelligence, Policy development, and a Regional Observatory (RO).
+
+RO is a web-based information and knowledge portal that acts as a one-stop open-access service for public data, information and
+intelligence about a wide range of social, economic and environmental factors across Dumfries and Galloway and the South of Scotland.
+
+Our customers representing the Crichton Institute were Development Officer Eva Milroy and Director Tony Fitzpatrick, who were the key
+focal points in terms of our team demonstrating progress at the end of each iteration and reporting feedback from their shareholders.
+
+% Their problem description
+
+"We were asked to provide quick, virtually instant access to headline information on the current key economic indicators that are of
+importance to Dumfries and Galloway. Information on current regional unemployment/employment figures, GVA, house prices, business start-ups,
+population etc, should be available via the home page of RO, as well as the CI website, with links to the relevant sources.
+The exact details of data that can most usefully be included was open for discussion.
+
+They were asking about the possibility of using APIs that link to the relevant local data, offer a comparison to the Scotland-wide data and,
+if possible even a UK-wide comparison. If the project time allowed, they wanted functionality to be built in that the user is able to ‘build’ his/her
+own cheat sheet,a summary of the indicators important to him/her, and download this as a printable pdf document."
+
+Ideally, they wanted the dashboard to look similar to those of the London Dashboard~\cite{LondonDashboard} or the Dublin Dashboard\cite{DublinDashboard}.
+
+% What we initially agreed compared to what we delivered at the end
+
+Of all the requirements we initially agreed upon with the customers, the majority of them have been addressed and either completed as initially suggested
+or an alternative has been put in place. The only large initially discussed task we will not be completing is building our own API but it was concluded
+with Eva and Tony during a meeting that this was not necessary anyway and because there were a lot of issues concerning availability of data, it would be
+extremely difficult and we could use the time we would have spent working on that more effectively, improving other, more important parts of the site.
+
+The customers have been consistently happy throughout, and not at any point did they ask us to remove something we had done, except for small details such 
+as shadowing behind text. They made various suggestions during the meetings but even most of those were ideas that we had already thought about but were 
+yet to implement.
+
+Overall the final product fits the initial brief almost exactly and the customer is happy that what we have produced meets their requirements. That
+is, afterall, the most important thing.
+
+
+% (Under Construction)
+
+%==============================================================================
+\section{Team Dynamics}
+
+We talk about initial individual efforts, how more team members contributed more as the site grew into something functional
+and the importance tof documentation etc, our use of slack for team communication with integration with SVN/Jenkins
+
+The assignment of members to project teams was randomised and sorted based on degree discipline, with our team being
+Computing Science oriented. Our team was randomised, however two of us were close friends and another two were from the
+same country which helped with initial team cohesion. One of our first tasks was to add one another on Facebook as a means of
+team communication, however in addition to this we also used Slack, a cloud-based team collaboration tool. We found this to
+be of much better use than Facebook due to the organisation of discussion groups (e.g. one for general communication, one for
+minutes of meetings). We were also able to integrate Jenkins and SVN into this tool to monitor the success of project builds,
+and also to monitor when new commits are made to the repository. We had Jenkins integration early on in the project life cycle
+but introduced the SVN component approximately half way through the process, in hindsight we wished we had used this from the
+start. At the early stages we also organised team roles: Lewis as Project Manager; Isaac as Tech Lead; Michael as Client Liason;
+Ross as Retrospective Manager and Branko and Takis were Software Engineers. In terms of agreement of these roles they were unanimous
+based on the persoanl traits of each team member and this was consistently adhered to throughout the project.
+
+One particular observation we noticed early on in the process was the commitment of team members to team meetings and also
+to efforts made in developing the project. The university had timetabled one all day lab session per week that was dedicated
+to team project work, and on these days we had the majority of our team members attend. The problems seemed to arise when
+team members did not show up for additional team meetings arranged well in advance, sometimes this was due to mittigating
+circumstances such as ill health or part-time job commitments, and whilst this was acceptable the main issue was the fact
+that at this stage team members seemed to give no prior notice that they would not be available and consequently only
+half the team showed up to these meetings on average. As the process continued the consistency of team members attending these
+extra meetings improved albeit if they showed up later than intially arranged.
+
+In terms of effort put into the project, there seemed to be a pattern where it was only our Tech Lead that was committing the most
+work into the project in the initial stages. This was down to the fact that he has professional web development experience from previous
+years while the rest of the team have limited experience. However once the site was partially functioning as a proof of concept, it 
+encouraged more team members to make contributions to the project.
+
+
+%==============================================================================
+
+\section{System Implementation}
+\label{design}
+
+We should talk about the building stages of the site, making the build component based, availability of APIs
+
+In software engineering there are many ways to implement a project but there are certain tools that are more advatageous over
+others. For our team project we were asked to build a web application, so in doing so we had to deicde on a web framework that
+we could use as the basis of our project. We chose the Python-based Django framework as we have all have had previous experience
+in developing web applications using this as part of a unviersity course. There were options where we could have used an alternative
+framework such as Java Spring, and whilst we are all proficient as team members in the use of Java, there would be too much time
+wasted on learning the basics of Spring. In choosing Django it allowed us to spend more time on the project itself. Our project
+used a variety of languages such as HTML, CSS, Bootstrap and Javascript, all in which we have had previous experience using.
+We also used new technologies such as Angular JS, d3 for graph visualisation and Grdister for the movement and resizing of graph
+elements.
+
+The starting point of our project was to create a base template for the site: we found a Boostrap template that was a good starting
+point in terms of a colour scheme and layout that was both simplistic yet professional. Next was to decide how to implement the
+graphs: we decided upon using d3 for graph visualisation as this was mentioned by a lecturer in another course we were currently
+taking at university. To begin with the graphs were taken from a demonstration website with hard-coded data as more of a proof
+of concept that we could implement bar and line graphs. After this we wanted a way of making the dashboard customisable, so we
+found Grdister to be very effective in terms of moving and resizing graphs. By the deadline of the first iteration this was
+achieved and was a great starting point to develop our site upon.
+
+The next issue we had to deal with is how we can use real data in these graphs. We started by researching the various websites
+suggested by our customer such as NOMIS Scotland. We found that most of these sites were difficult to use in terms of extracting
+exactly the kind of data that we needed. Eventually we came across Statistics beta which was a site being set up on behalf of
+the Scottish Government to be used as a centralised access point to informatiob. In this, we were able to find data on
+hundreds of economic indicators in CSV format. We created a script that would process these files, extract only the data collected
+on Dumfries and Galloway and Scotland and format this to be rendered by the d3 code that visualises the data before storing it on
+our site's database. This was a major step in our project in terms of using real data, however our main issue here was that the
+data was static, and at the time of download was outdated. In addition to this the files all used inconsistent date formats (e.g.
+one would be quarterly, another would be monthly, another yearly) which presented a major issue in terms of a key requirement
+being that users want to access the latest available data as well as looking back on previous years. We raised this issue
+with our customers and they were aware of this issue beforehand, this was a relief.
+
+
+
+%==============================================================================
+\section{Process Improvements}
+\label{managing}
+
+We talk about the improvements we've made as a team, such as improvements make to ticket management
+
+%------------------------------------------------------------------------------
+
+\section{Customer Management}
+\label{sec:managing}
+
+We talk about how we appointed a customer liason to communicate with and receive feedback from our customer, how we dealt with
+demonstrations, how we dealt with change of expectations and changes to customer requirements. We also should talk about the
+introduction of requirements from other teams in terms of integration into the Crichton site.
+
+
+%------------------------------------------------------------------------------
+\section{Conclusions}
+
+Explain the wider lessons that you learned about software engineering,
+based on the specific issues discussed in previous sections.  Reflect
+on the extent to which these lessons could be generalised to other
+types of software project.  Relate the wider lessons to others
+reported in case studies in the software engineering literature.
+
+%==============================================================================
+\bibliographystyle{plain}
+\bibliography{dissertation}
+\end{document}

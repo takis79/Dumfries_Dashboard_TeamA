@@ -1,0 +1,5 @@
+<li gridster-item="widget" ng-repeat="widget in widgets" style="z-index: 2;">
+    {% include "dashboard/partials/graphWidget.djhtml" %}
+    
+    {% include "dashboard/partials/trendWidget.djhtml" %}
+</li>

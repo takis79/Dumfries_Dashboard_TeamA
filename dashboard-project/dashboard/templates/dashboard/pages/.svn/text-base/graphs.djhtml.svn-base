@@ -1,0 +1,119 @@
+<div class="padding" ng-controller="draggableGridController">
+    <div class="full col-sm-9">
+        <div class="row">
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-3">
+                <form class="" id="searchForm" action="/search">
+                        <div class="input-group input-group-sm" style="max-width:360px;">
+                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-default" href="" ng-click="saveConfig()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
+                        <button class="btn btn-default" href="" ng-click="clear()"><span class="glyphicon glyphicon-trash"></span> Clear</a>
+                        <button class="btn btn-default" href="" ng-click="exportToPDF()"><span class="glyphicon glyphicon-export"></span> Export To PDF</a>
+                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Add Graph
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          {% for cat in catList %}
+                            <li class="dropdown-header">{{ cat.categoryName }}</li>
+                            {% for vis in cat.visualisations %}
+                            <li><a href="" data-pk="{{ vis.0 }}" class="addGraph">{{ vis.1 }}</a></li>
+                            {% endfor %}
+                            <li role="separator" class="divider"></li>
+                          {% endfor %}
+                          </ul>
+                          <a class="btn btn-default" href="{% if user.is_authenticated %}/logout{% else %}#savedconfigs{% endif %}" id="logout-btn">
+                            {% if user.is_authenticated %}Logout
+                            {% else %} Login
+                            {% endif %}
+                          </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <div id="daterange" class="pull-right daterange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                        <span></span> <b class="caret"></b>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+	<br>
+	<div align="right">
+		
+	</div>
+	</br>
+	   <div>
+        <div gridster="gridsterOptions">
+            <ul id="graphUL">
+                {% include "dashboard/partials/widget.djhtml" %}
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Graph Title</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Description</h3>
+        <p id="graph-description">Description</p>
+        <hr/>
+        <h3>Sources</h3>
+        <p>General Source: <a id="graph-general-source-link" target="_blank"><span id="graph-general-source-name"></span></a></p>
+        <p>Specific Data Source: <a id="graph-specific-source-link" target="_blank"><span id="graph-specific-source-name"></span></a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script type="text/javascript">
+    $('#daterange').daterangepicker();
+    applyDatePickerStats();
+    
+    $('#infoModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      
+      modal.find('.modal-title').text(button.data('graphname'));
+      
+      if (!button.data('description')) {
+        modal.find('#graph-description').text("No description provided.");
+      } else {
+        modal.find('#graph-description').text(button.data('description'));
+      }
+      
+      modal.find('#graph-general-source-link').attr('href',button.data('sourcelink'));
+      modal.find('#graph-general-source-name').text(button.data('sourcename'));
+      modal.find('#graph-specific-source-link').attr('href', button.data('datasetlink'));
+      if (!button.data('datasetlink')) {
+          modal.find('#graph-specific-source-name').text("No Link Available");
+      } else {
+          modal.find('#graph-specific-source-name').text(button.data('datasetlink'));
+      }
+      
+    });
+</script>

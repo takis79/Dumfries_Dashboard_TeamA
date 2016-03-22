@@ -1,0 +1,30 @@
+<div class="padding">
+    <div class="full col-sm-9">
+        <div class="row">
+            <div class="col-sm-12">
+            <h2>Search Results For '{{ searchTerm }}'</h2>
+            {% for widget in results %}
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-8"><h5>{{ widget.name }}</h5></div>
+                        <div class="col-sm-4">
+                            <div class="pull-right">
+                                <a title="Information" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="Source: <a href='{{ widget.sourceLink }}' target='_blank'>{{ widget.sourceName }}</a>" ng-click="showPopover($event)"><i class="glyphicon glyphicon-info-sign"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body"><svg id="graph{{widget.pk}}" class="chart {{widget.type}}" width="200" height="200"></svg></div>
+            </div>
+            {% empty %}
+            <p>No results to show!</p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+GLOBAL.currentSearchWidgets = {{ widgetsJSON | safe }};
+</script>

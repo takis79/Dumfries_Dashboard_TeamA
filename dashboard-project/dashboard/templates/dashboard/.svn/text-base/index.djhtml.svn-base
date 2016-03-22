@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" ng-app="dashboard">
+    <head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="{% static "dashboard/img/favicon.png" %}" rel="shortcut icon" type="image/png" />
+        <link href="{% static "dashboard/css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/css/angular-gridster.min.css" %}" rel="stylesheet">
+        <link href="{% static "dashboard/css/styles.css" %}" title="default" rel="stylesheet">
+         <link href="{% static "dashboard/css/style1.css" %}" title="style1" rel="alternate stylesheet">
+         <link href="{% static "dashboard/css/style2.css" %}" title="style2" rel="alternate stylesheet">
+	    <link rel="stylesheet" type="text/css" media="all" href="{% static "dashboard/css/daterangepicker.css" %}" />
+	    <!--<link rel="stylesheet" href="{% static "dist/angular-dropdowns.min.css" %}">-->
+	
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body ng-controller="mainController" style="z-index: 1;">
+        <div class="wrapper">
+            <div class="box">
+                <div class="row row-offcanvas row-offcanvas-left">
+                    <!-- sidebar -->
+                    <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+                        <ul class="nav">
+                            <img src="{% static "dashboard/img/logo.png" %}" alt="Crichton Institute Banner" class="img-responsive hidden-xs" width="300" height="250" id="banner">
+                            <li><a href="" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                        </ul>
+                       
+                        <ul class="nav hidden-xs" id="lg-menu">
+		                    <li class="active"><a href="#/"><i class="glyphicon glyphicon-list-alt"></i> Dashboard</a></li>
+                            <li><a href="#savedconfigs"><i class="glyphicon glyphicon-list"></i> Saved Configurations</a></li>
+                            <li><a href="#category"><i class="glyphicon glyphicon-paperclip"></i> Data Categories</a></li>
+                            <li><a href="http://crichtonobservatory.org.uk/" target="_blank"><i class="glyphicon glyphicon-home"></i> Crichton Institute</a></li>
+                            <li><a href="#help"><i class="glyphicon glyphicon-info-sign"></i> Help / Documentation</a></li>
+                            <li><a href="/admin" target="_blank"><i class="glyphicon glyphicon-console"></i> Admin Panel</a></li>
+                        </ul>
+                        <br/>
+                        <div class="hidden-xs">
+                            <h3>Dumfries & Galloway Dashboard</h3>
+                            <p>This is the Crichton Institute economic dashboard for the area of Dumfries and Galloway.</p>
+                            <p>This dashboard aims to provide a comprehensive and easy-to-use overview of the economic situation in Dumfries and Galloway.</p>
+                        </div>
+                        
+                        <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                            <li>
+                                <small>Developed by Isaac Jordan, Lewis Dicks, Praxitelis Kourtellos, Takis Nicolaides, Rostislav Yordanov, and Michael Byars as part of University of Glasgow Level 3 Team Project.</small>
+                            </li>
+                            <li>
+
+                                <a href="#" onclick="setActiveStyleSheet('default'); return false; window.location.reload();"><i class="glyphicon glyphicon-eye-open"></i> Blue  |</a>
+                                <a href="#" onclick="setActiveStyleSheet('style1'); return false;"> Purple  |</a>
+                                <a href="#" onclick="setActiveStyleSheet('style2'); return false;"> Large |</a>
+                                <a href="#"  onClick="location.reload()"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <br/>
+                                <small id="instructions">To fully load new style, click refresh button</small>
+
+
+                            </li>
+                        </ul>
+                      
+                    </div>
+                    <!-- /sidebar -->
+                  
+                    <!-- main right col -->
+                    <div class="column col-sm-10 col-xs-11" id="main">
+                        <!-- top nav -->
+                        <div class="navbar navbar-blue navbar-static-top">
+                            <div class="navbar-header">
+                              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            </div>
+                            <nav class="collapse navbar-collapse" role="navigation">
+        
+                            </nav>
+                        </div>
+                        <!-- /top nav -->
+
+
+                        <div class="main-content">
+                            <div ng-view></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- script references -->
+        <script src="{% static "dashboard/js/jquery-1.11.3.js" %}"></script>
+        <script src="{% static "dashboard/js/bootstrap.js" %}"></script>
+    	<script src="{% static "dashboard/js/moment.js" %}" type="text/javascript" ></script>
+    	<script src="{% static "dashboard/js/daterangepicker.js" %}" type="text/javascript" ></script>
+    	
+    	
+    	
+        <script>
+            /* off-canvas sidebar toggle */
+            $(document).ready(function(){
+                $('[data-toggle=offcanvas]').click(function() {
+                    $(this).toggleClass('visible-xs text-center');
+                    $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+                    $('.row-offcanvas').toggleClass('active');
+                    $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+                    $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+                    $('#btnShow').toggle();
+                });
+            });
+        </script> 
+    
+        <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="{% static "dashboard/js/angular.js" %}"></script>
+        <script src="{% static "dashboard/js/angular-route.js" %}"></script>
+        <script src="{% static "dashboard/js/angular-gridster.min.js" %}"></script>
+        <script src="{% static "dashboard/js/daterangepicker_file.js" %}"></script>
+        <script src="{% static "dashboard/js/graphs.js" %}"></script>
+        <script src="{% static "dashboard/js/generate-pdf.js" %}"></script>
+        <script src="{% static "dashboard/js/dashboard.js" %}"></script>
+        <script src="{% static "dashboard/js/jspdf.min.js" %}"></script>
+        <script src="{% static "dashboard/js/styleswitcher.js" %}"></script>
+
+        <script type="text/javascript" src="http://gabelerner.github.io/canvg/rgbcolor.js"></script> 
+        <script type="text/javascript" src="http://gabelerner.github.io/canvg/StackBlur.js"></script>
+        <script type="text/javascript" src="http://gabelerner.github.io/canvg/canvg.js"></script> 
+        <script src="{% static "dashboard/js/svg_todataurl.js" %}"></script>
+        
+        <script>
+            var styleFile = "style" + document.cookie.charAt(6) + ".css";
+            //document.writeln('<link rel="stylesheet" type="text/css" href="' + styleFile + '">');
+        </script>
+    </body>
+</html>

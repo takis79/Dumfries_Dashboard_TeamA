@@ -1,0 +1,154 @@
+{% load humanize util %}
+<div class="padding">
+    <div class="full col-sm-9">
+        <div class="row">
+	    <input class="daterange" id="daterange_category" type="text" name="daterange" />
+            <div class="col-sm-12">
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span>
+                  {{ error }}
+                </div>
+                {% endif %}
+                <h2>{{category.name}}</h2>
+            </div>
+
+            <div>
+                {% for widget in widgets %}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="panel panel-default" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-sm-8"><h5>{{ widget.name }}</h5></div>
+                                    <div class="col-sm-4">
+                                        <div class="pull-right">
+                                            <a title="Information" role="button" data-toggle="modal" data-target="#infoModal" data-graphname="{{ widget.name }}" data-description="{{ widget.description }}" data-sourcelink="{{ widget.sourceLink }}" data-sourcename="{{ widget.sourceName }}" data-datasetlink="{{ widget.datasetLink }}" data-datasetname="{{ widget.datasetName }}">
+                                                <i class="glyphicon glyphicon-info-sign"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body"><svg id="graph{{widget.pk}}" class="chart {{widget.type}}" width="200" height="300"></svg></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-sm-12"><h5>{{ widget.name }} Statistics</h5></div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>Maximum: {{ widget.trends.maxY.y | intcomma }} at {{ widget.trends.maxY.x | convertXValueToString }}</p>
+                                <p>Minimum: {{ widget.trends.minY.y | intcomma }} at {{ widget.trends.minY.x | convertXValueToString }}</p>
+                                {% for analysis in widget.trends.analysis %}
+                                <h3>{{ analysis.name }} Line Statistics</h3>
+                                
+                                {% if analysis.lastMonth %}
+                                <p>
+                                    Change on last month:
+                                    {% if analysis.lastMonth > 0 %}<span class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                                    {% elif analyis.lastMonth < 0 %}<span class="glyphicon glyphicon-chevron-down" style="color:blue"></span>{% endif %}
+                                    {{ analysis.lastMonth }}% 
+                                </p>
+                                {% endif %}
+                                
+                                {% if analysis.last3Months %}
+                                <p>
+                                    Change on last 3 months:
+                                    {% if analysis.last3Months > 0 %}<span class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                                    {% elif analyis.last3Months < 0 %}<span class="glyphicon glyphicon-chevron-down" style="color:blue"></span>{% endif %} 
+                                    {{ analysis.last3Months }}%
+                                </p>
+                                {% endif %}
+                                
+                                {% if analysis.last6Months %}
+                                <p>
+                                    Change on last 6 months: 
+                                    {% if analysis.last6Months > 0 %}<span class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                                    {% elif analyis.last6Months < 0 %}<span class="glyphicon glyphicon-chevron-down" style="color:blue"></span>{% endif %}
+                                    {{ analysis.last6Months }}%
+                                </p>
+                                {% endif %}
+                                
+                                {% if analysis.lastYear %}
+                                <p>
+                                    Change on last year:
+                                    {% if analysis.lastYear > 0 %}<span class="glyphicon glyphicon-chevron-up" style="color:green"></span>
+                                    {% elif analyis.lastYear < 0 %}<span class="glyphicon glyphicon-chevron-down" style="color:blue"></span>{% endif %}
+                                    {{ analysis.lastYear }}%
+                                </p>
+                                {% endif %}
+                                
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% empty %}
+                <p>There's no graphs for this category.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Graph Title</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Description</h3>
+        <p id="graph-description">Description</p>
+        <hr/>
+        <h3>Sources</h3>
+        <p>General Source: <a id="graph-general-source-link" target="_blank"><span id="graph-general-source-name"></span></a></p>
+        <p>Specific Data Source: <a id="graph-specific-source-link" target="_blank"><span id="graph-specific-source-name"></span></a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script type="text/javascript">
+    $('#daterange').daterangepicker();
+    applyDatePickerStats();
+    
+    $('#infoModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      
+      modal.find('.modal-title').text(button.data('graphname'));
+      
+      if (!button.data('description')) {
+        modal.find('#graph-description').text("No description provided.");
+      } else {
+        modal.find('#graph-description').text(button.data('description'));
+      }
+      
+      modal.find('#graph-general-source-link').attr('href',button.data('sourcelink'));
+      modal.find('#graph-general-source-name').text(button.data('sourcename'));
+      modal.find('#graph-specific-source-link').attr('href', button.data('datasetlink'));
+      if (!button.data('datasetlink')) {
+          modal.find('#graph-specific-source-name').text("No Link Available");
+      } else {
+          modal.find('#graph-specific-source-name').text(button.data('datasetlink'));
+      }
+      
+    });
+</script>
+
+<script>
+GLOBAL.currentCategoryWidgets = {{ widgetsJSON | safe }};
+applyDatePickerStats();
+</script>

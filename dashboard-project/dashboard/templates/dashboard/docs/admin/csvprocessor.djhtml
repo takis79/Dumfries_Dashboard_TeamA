@@ -1,0 +1,130 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block content %}
+<h1>Administrator help for CSV Importing and Processing</h1>
+
+<p>
+    This page aims to provide a comprehensive guide for any administrators who
+    needs to import new data to the dashboard.
+</p>
+
+<h2>Step-By-Step Guide</h2>
+
+<ul>
+    <li>
+        <h3>Navigate to the "Add" page</h3>
+        <p>
+            From the root admin page, click on "Csv files" under the "Csv_Processor"
+            heading. This will display all added CSV files to date.
+        </p>
+        <p>
+            Click on "Add csv file" in the top right of the page to begin the process.
+        </p>
+    </li>
+    <li>
+        <h3>Fill in the details</h3>
+        <p>
+            First, fill in the general details of the new CSV file. An explanation of all the fields is in the table below.
+        </p>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th> 
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>A name for this CSV file.</td> 
+            <td>Electricity Prices Jan 2016</td>
+          </tr>
+          <tr>
+            <td>Visualisation Name</td>
+            <td>This name will be the publicly visible graph name. This name must be unique, meaning there are no other visualisations with the same name.</td> 
+            <td>Electricity Prices</td>
+          </tr>
+          <tr>
+            <td>Category</td>
+            <td>Which category this data belongs to. If no category is a good fit, new categories can be created from the Admin section.</td> 
+            <td>Housing</td>
+          </tr>
+          <tr>
+            <td>DataSource</td>
+            <td>The website where the CSV file was downloaded from.</td>
+            <td>www.ElectricityPricesScotland.com</td>
+          </tr>
+          <tr>
+            <td>Upload</td>
+            <td>Navigate to where the CSV you would like to import is in your system and select it.</td>
+            <td>MyComputer/examples/example.csv</td>
+          </tr>
+          <tr>
+            <td>Source</td>
+            <td>The link to the specific WebPage of the CSV. </td>
+            <td>www.ElectricityPricesScotland.com/Electricity Prices Jan 2016</td>
+          </tr>
+        </table>
+    </li>
+    <li>
+        <h3>Fill in the details for each dimension in the graph</h3>
+        <p> You need to create at least 2 dimensions: One should be the 'x' axis: week,months,year ... etc"; The rest should be the lines in the graph e.g "Dumfries and Galloway"</p>
+        <p> Note: you can add more dimensions by clicking "Add another Dimension" on the bottom </p>
+        <p>
+            First, fill in the general details of the new dimension. An explanation of all the fields is in the table below.
+        </p>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Data Label</td>
+            <td>The timerange if this is a 'x' axis dimension or the name of the region if it is a line in the graph.</td>
+            <td>Year ('x' axis); Dumfries and Galloway (line in the graph)</td>
+          </tr>
+          <tr>
+            <td>Label Index</td>
+            <td>The row or column index that the label appears in.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Label Type</td>
+            <td>Whether these indices should be taken as row or column values.</td>
+            <td>Row</td>
+          </tr>
+          <tr>
+            <td>Override label with index</td>
+            <td>If data series has no label, this field can specify the index.</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>Data Start:</td>
+            <td>The index of the first cell of interest for this data series.</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Data End</td>
+            <td>The index of the last cell of interest for this data series. </td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>Data Type</td>
+            <td>The type of data the CSV contains for this data series. </td>
+            <td>Date</td>
+          </tr>
+          <tr>
+            <td>Data Format</td>
+            <td>Specify the format of the data. If dataType is 'date', uses strptime formatting. Otherwise uses Python Regex formatting. </td>
+            <td>For date : e.g "Mar-05" = %b-%y; "2002" = %Y; For currency: e.g "£54.994" = £; For numeric: e.g "54235" = <leave blank> </td>
+          </tr>
+          <tr>
+            <td>Make x-axis on graph</td>
+            <td>Select only ONE dimension to be used as the X axis (timerange). </td>
+            <td>Ticked</td>
+          </tr>
+        </table>
+    </li>
+</ul>
+
+{% endblock content %}

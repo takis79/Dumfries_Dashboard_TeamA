@@ -1,0 +1,533 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block content %}
+<h1>Administrator help for Dashboard Management</h1>
+
+<p>
+    This page aims to provide a comprehensive guide for any administrators who
+    need to make changes to the dashboard.
+</p>
+
+<h1>Step-By-Step Guide on how to make changes to the following:</h1>
+
+<ul>
+    <li> <h3> Dashboard datasets    </h3> </li>
+    <li> <h3> Dashboard datasources </h3> </li>
+    <li> <h3> Saved configs         </h3> </li>
+    <li> <h3> Saved graphs          </h3> </li>
+    <li> <h3> Visualissations       </h3> </li>
+</ul>
+
+<h2> Dashboard datasets: </h2>
+
+<p>The "<a Class = "addlink"></a>Add" button redirects the admin to a page where a new dataset can be added.
+the following table provides information on how a new dataset is added.</p>
+
+<ul>
+    <li>
+        <h3>
+            First, fill in the general details of the new dataset. An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the dataset which will be shown in the corresponding visualisation.</td>
+            <td>Dumfries and Galloway</td>
+          </tr>
+          <tr>
+            <td>DataJSON</td>
+            <td>The JSON formatted data of the dataset.</td>
+            <td>[{"y": 5, "x": "Edinburgh"}, {"y": 3, "x": "Glasgow"}, {"y": 8, "x": "London"}, {"y": 3, "x": "Leeds"}]</td>
+          </tr>
+          <tr>
+            <td>Link:</td>
+            <td>The link where information was gathered from.</td>
+            <td>http://statistics.gov.scot/data/recorded-crime</td>
+          </tr>
+          <tr>
+            <td>Visualisation:</td>
+            <td>The name of the visualisation to which this dataset will be added.("<a Class = "addlink"></a>" allows the admin to add a new visualisation)</td>
+            <td>Crime</td>
+          </tr>
+          <tr>
+            <td> Filename:</td>
+            <td>The name of the file that holds the data.</td>
+            <td>CrimeRate.csv</td>
+          </tr>
+        </table>
+    </li>
+</ul>
+
+<p> Pressing on "<a class = "changelink" ></a>Change" or on "Dashboard datasets"
+will both redirect you to the page displaying the Dashboard datasets in detail</p>
+
+
+<ul>
+    <li>
+        <h3>
+            The following table explains the fields of the datasets.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the dataset which will be shown in the corresponding visualisation.</td>
+            <td>Dumfries and Galloway</td>
+          </tr>
+          <tr>
+            <td>Datasetptr</td>
+            <td>The pointer name which is assigned to the dataset on creation.</td>
+            <td>Dumfries and Galloway</td>
+          </tr>
+          <tr>
+            <td>Datasetptr</td>
+            <td>The pointer which is automatically assigned to the dataset on creation.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Visualisation:</td>
+            <td>The name of the visualisation to which this dataset is connected.</td>
+            <td>Crime</td>
+          </tr>
+          <tr>
+            <td> Link:</td>
+            <td>The website where the data was gathered from .</td>
+            <td>http://statistics.gov.scot/data/recorded-crime</td>
+          </tr>
+           <tr>
+            <td> DataJSON:</td>
+            <td>The JSON formatted data of the dataset.</td>
+            <td>[{"y": 5, "x": "Edinburgh"}, {"y": 3, "x": "Glasgow"}, {"y": 8, "x": "London"}, {"y": 3, "x": "Leeds"}]</td>
+          </tr>
+           <tr>
+            <td> Visualisation:</td>
+            <td>The name of the visualisation to which this dataset is connected.</td>
+            <td>Crime</td>
+          </tr>
+           <tr>
+            <td> Filename:</td>
+            <td>The name of the file that holds the data.</td>
+            <td>CrimeRate.csv</td>
+          </tr>
+           <tr>
+            <td> ID:</td>
+            <td>The id of the dataset which is automatically generated on creation.</td>
+            <td>12</td>
+          </tr>
+        </table>
+    </li>
+</ul>
+
+<h2> Dashboard datasources: </h2>
+<p>The "<a Class = "addlink"></a>Add" button redirects the admin to a page where a new datasource can be added.
+the following table provides information on how a new datasource is added.</p>
+
+<ul>
+    <li>
+        <h3>
+            First, fill in the general details of the new datasource. An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the datasource.</td>
+            <td>Scottish Government Beta</td>
+          </tr>
+          <tr>
+            <td> Link:</td>
+            <td>The link to the website of the datasource.</td>
+            <td>https://www.ros.gov.uk/</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<p> Pressing on "<a class = "changelink" ></a>Change" or on "Dashboard datasource"
+will both redirect you to the page displaying the Dashboard datasources in detail</p>
+
+<ul>
+    <li>
+        <h3>
+            First, fill in the general details of the new datasource. An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the datasource.</td>
+            <td>Scottish Government Beta</td>
+          </tr>
+          <tr>
+            <td> Link:</td>
+            <td>The link to the website of the datasource.</td>
+            <td>https://www.ros.gov.uk/</td>
+          </tr>
+          <tr>
+            <td> Datasource ptr:</td>
+            <td>The pointer to the datasource which is automatically generated on creation.</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td> ID:</td>
+            <td>The id of the datasource which is automatically generated on creation.</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td> Datasource ptr:</td>
+            <td>The name pointer of the datasource assigned on creation.</td>
+            <td>Scottish Government Statistics Beta</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<h2> Saved Configs: </h2>
+<p>The "<a Class = "addlink"></a>Add" button redirects the admin to a page where a new Saved Config can be added.
+the following table provides information on how a new Saved Config is added.</p>
+
+<ul>
+    <li>
+        <h3>
+            First, fill in the general details of the new Saved Config. An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the Saved Config.</td>
+            <td>testSaved</td>
+          </tr>
+          <tr>
+            <td> User:</td>
+            <td>The user to which this configuration will be saved.</td>
+            <td>testUser</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<p> Pressing on "<a class = "changelink" ></a>Change" or on "Saved Config"
+will both redirect you to the page displaying the Saved Configs in detail</p>
+
+<ul>
+    <li>
+        <h3>
+          An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>User</td>
+            <td>This field specifies the user that has rights over the saved config.</td>
+            <td>test@test.com</td>
+          </tr>
+          <tr>
+            <td> ID ptr:</td>
+            <td>The pointer to the SavedConfig which is automatically generated on creation.</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td> Name:</td>
+            <td>The name of the saved config.</td>
+            <td>test</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<h2> Saved Graphs: </h2>
+<p>The "<a Class = "addlink"></a>Add" button redirects the admin to a page where a new Saved Graph can be added.
+the following table provides information on how a new Saved Graph is added.</p>
+
+<ul>
+    <li>
+        <h3>
+           An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Visualisation</td>
+            <td>This field specifies the visualisation the graph is connected to.</td>
+            <td>Crime</td>
+          </tr>
+          <tr>
+            <td> isTrendWidget:</td>
+            <td>This shows if the graph is a trend Widget.</td>
+            <td>ticked</td>
+          </tr>
+          <tr>
+            <td> SavedConfig:</td>
+            <td>This specifies the saved configuration the graph is attributed to.</td>
+            <td>test</td>
+          </tr>
+          <tr>
+            <td> XPosition:</td>
+            <td>Specify the position of the X.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td> YPosition:</td>
+            <td>Specify the position of the Y.</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td> SizeX:</td>
+            <td>This specifies the size of the X.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td> SizeY:</td>
+            <td>This specifies the size of the Y.</td>
+            <td>2</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<p> Pressing on "<a class = "changelink" ></a>Change" or on "Saved Config"
+will both redirect you to the page displaying the Saved Graph in detail</p>
+
+<ul>
+    <li>
+        <h3>
+             An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+        <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td> XPosition:</td>
+            <td>Specify the position of the X.</td>
+            <td>2</td>
+          </tr>
+           <tr>
+            <td> YPosition:</td>
+            <td>Specify the position of the Y.</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td> SizeY:</td>
+            <td>This specifies the size of the Y.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td> SizeX:</td>
+            <td>This specifies the size of the X.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Visualisation</td>
+            <td>This field specifies the visualisation the graph is connected to.</td>
+            <td>Crime</td>
+          </tr>
+          <tr>
+            <td> isTrendWidget:</td>
+            <td>This shows if the graph is a trend Widget.</td>
+            <td>ticked</td>
+          </tr>
+           <tr>
+            <td>Visualisation</td>
+            <td>This field specifies the visualisation the graph is connected to.</td>
+            <td>Crime</td>
+          </tr>
+          <tr>
+            <td> SavedConfig:</td>
+            <td>This specifies the saved configuration the graph is attributed to.</td>
+            <td>test</td>
+          </tr>
+          <tr>
+            <td> SavedConfig:</td>
+            <td>This specifies the saved configuration the graph is attributed to.</td>
+            <td>test</td>
+          </tr>
+          <tr>
+            <td> ID:</td>
+            <td>This specifies the ID of the saved graph automatically generated on creation.</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td> SavedConfig:</td>
+            <td>This specifies the saved configuration the graph is attributed to.</td>
+            <td>test</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<h2> Visualisation: </h2>
+<p>The "<a Class = "addlink"></a>Add" button redirects the admin to a page where a new Visualisation can be added.
+the following table provides information on how a new Visualisation is added.</p>
+
+<ul>
+    <li>
+        <h3>
+         An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Datasource</td>
+            <td>This field specifies the datasource for the visualisation.</td>
+            <td>Bar Graph datasource</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the Visualisation.</td>
+            <td>testVisual</td>
+          </tr>
+          <tr>
+            <td> Description:</td>
+            <td>A brief description of the visualisation.</td>
+            <td>This is a graph for unemployment rates in 2016</td>
+          </tr>
+          <tr>
+            <td>Category</th>
+            <td>This field specifies the category underwich the visualisation will fall.</th>
+            <td>Crime</th>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>This field specifies the type of the graph.</td>
+            <td>line</td>
+          </tr>
+          <tr>
+            <td> SizeY:</td>
+            <td>This specifies the size of the Y.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td> SizeX:</td>
+            <td>This specifies the size of the X.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>XLabel</th>
+            <td>The label of the X axis</th>
+            <td>Year</th>
+          </tr>
+          <tr>
+            <td>YLabel</td>
+            <td>The label of the Y axis.</td>
+            <td>Dumfries and Galloway</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+
+<p> Pressing on "<a class = "changelink" ></a>Change" or on "Visualisation"
+will both redirect you to the page displaying the Visualisation in detail</p>
+
+<ul>
+    <li>
+        <h3>
+         An explanation of all the fields is in the table below.
+        </h3>
+        <table>
+          <tr>
+            <th>Field Name</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>This field specifies the name of the Visualisation.</td>
+            <td>testVisual</td>
+          </tr>
+          <tr>
+            <td>Category</th>
+            <td>This field specifies the category underwich the visualisation will fall.</th>
+            <td>Crime</th>
+          </tr>
+          <tr>
+            <td>Datasource</td>
+            <td>This field specifies the datasource for the visualisation.</td>
+            <td>Bar Graph datasource</td>
+          </tr>
+          <tr>
+            <td>YLabel</td>
+            <td>The label of the Y axis.</td>
+            <td>Dumfries and Galloway</td>
+          </tr>
+          <tr>
+            <td> SizeX:</td>
+            <td>This specifies the size of the X.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td> SizeY:</td>
+            <td>This specifies the size of the Y.</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>XLabel</th>
+            <td>The label of the X axis</th>
+            <td>Year</th>
+          </tr>
+          <tr>
+            <td>Datasource</td>
+            <td>This field specifies the datasource for the visualisation.</td>
+            <td>Bar Graph datasource</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>This field specifies the type of the graph.</td>
+            <td>line</td>
+          </tr>
+           <tr>
+            <td>Category</th>
+            <td>This field specifies the category underwich the visualisation will fall.</th>
+            <td>Crime</th>
+          </tr>
+          <tr>
+            <td> Description:</td>
+            <td>A brief description of the visualisation.</td>
+            <td>This is a graph for unemployment rates in 2016</td>
+          </tr>
+          <tr>
+            <td> ID:</td>
+            <td>The ID of the visualisation which is automatically created on creation.</td>
+            <td>12</td>
+          </tr>
+         </table>
+     </li>
+</ul>
+{% endblock content %}

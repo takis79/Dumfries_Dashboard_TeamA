@@ -1,0 +1,24 @@
+{% verbatim %}
+<div class="panel panel-default" ng-if="widget.dataset">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-sm-8" font-size=0.5em ><h5>{{ widget.name }}</h5></div>
+            <div class="col-sm-4">
+                <div class="pull-right">
+                    <div class="btn-group"> 
+                        <a title="settings dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href=""><span class="glyphicon glyphicon-cog" ></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="" ng-click="getTrendData(widget.pk);">Add Trend</a></li>
+                        </ul>
+                        <a title="Information" role="button" data-toggle="modal" data-target="#infoModal" data-graphname="{{ widget.name }}" data-description="{{ widget.description }}" data-sourcelink="{{ widget.sourceLink }}" data-sourcename="{{ widget.sourceName }}" data-datasetlink="{{ widget.datasetLink }}" data-datasetname="{{ widget.datasetName }}">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                        </a>
+                        <a title="Remove widget" ng-click="deleteWidget($index)" href=""><span class="glyphicon glyphicon-remove"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body"><svg id="{{widget.id}}" class="chart {{widget.type}}" width="200" height="50"></svg></div>
+</div>
+{% endverbatim %}

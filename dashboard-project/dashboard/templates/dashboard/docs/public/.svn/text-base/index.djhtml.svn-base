@@ -1,0 +1,148 @@
+<div class="padding">
+    <div class="full col-sm-9">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Dashboard Help Documentation</h1>
+                <p>This page acts as a user guide. It should list all available features of the website, and how they may be used.</p>
+                <p>It is currently a work-in-progress.</p>
+                
+                <h3>Topics</h3>
+                <ul>
+                     <li><a href="#/help#dashboardInfo"><i class="glyphicon glyphicon-list-alt"></i> Dashboard</a></li>
+                     <li><a href="#/help#savedConfigInfo"><i class="glyphicon glyphicon-list"></i> Saved Configurations</a></li>
+                     <li><a href="#/help#dataCategoryInfo"><i class="glyphicon glyphicon-paperclip"></i> Data Categories</a></li>
+                     <li><a href="#/help#exportToPdfInfo"><i class="glyphicon glyphicon-export"></i> Export To PDF</a></li>
+                </ul>
+                 
+                <div id="dashboardInfo">
+                    <h2>
+                        <i class="glyphicon glyphicon-list-alt"></i> Dashboard
+                    </h2>
+                    
+                    <h3>What Is It?</h3>
+                    <p>
+                        This dashboard aims to provide quick, virtually instant access to 
+                        headline information on the current key economic indicators that are 
+                        of importance to Dumfries and Galloway.
+                    </p>
+                    
+                    <h3>How Do I Use It?</h3>
+                    <p>
+                        The dashboard is automatically displayed when you load in the <a href="/#/">home page</a>.
+                    </p>
+                    <p>
+                        You can remove graphs by clicking the "X" symbol in the top left of any graph. You can
+                        also rearrange the layout of the graphs by clicking and dragging. Graphs can be resized by
+                        mousing over the edge of the widget until the arrow symbol appears. You can then click and drag
+                        to resize that graph.
+                    </p>
+                    <p>
+                        Statistical information about a graph can be retrieved by clicking the cog icon, and clicking "Add Trend".
+                        This will add a new widget to the dashboard with the statistical data. This widget can be moved around, removed, and
+                        resized in the same fashion as the graphs.
+                    </p>
+                    <p>
+                        The source of a graph can be retrieved by clicking the "i" icon. This will display links to the original
+                        data source, as well as to the specific dataset (where available).
+                    </p>
+                    <p>
+                        Removed graphs can be added back to the dashboard by clicking the "Add Graph" button. This will display a dropdown
+                        list of all available graphs. Graphs that are already visible will be greyed out, and graphs that are removed will
+                        be clickable. Clicking on the name of a removed graph will add it back to the top of the dashboard at the default size.
+                    </p>
+                    <p>
+                        When changing the layout of the dashboard all graphs in the dashboard will move around to make
+                        the layout work and fit in the current screen space. On slower computers, this may cause some
+                        noticeable lag. On very slow machines or mobile devices, this can make the dashboard difficult to use.
+                    </p>
+                        This lag is something that may be improved in the future.
+                    </p>
+                </div>
+                 
+                <div id="savedConfigInfo">
+                    <h2>
+                        <i class="glyphicon glyphicon-list"></i> Saved Configurations
+                    </h2>
+                    
+                    <h3>What Is It?</h3>
+                    <p>
+                        Saved Configurations allow users to save the customisable dashboard in
+                        a users preferred layout. 
+                    </p>
+                    
+                    <h3>How Do I Use It?</h3>
+                    <p>
+                        Saved Configurations are only available to registered users. You can become
+                        a registered user by clicking on "Saved Configurations" on the left sidebar.
+                    </p>
+                    <p>
+                        This will display a login form. If you have registered already, enter your details
+                        and click "Login". Otherwise click "Sign Up" to register. A new form will appear
+                        prompting you to enter your details. After clicking "Register" you will be automatically
+                        signed in.
+                    </p>
+                    <p>
+                        Now click on "Saved Configurations" again to see your list of saved configurations. If you
+                        just registered, it will show no saved configurations.
+                    </p>
+                    <p>
+                        To save a configuration, click on "Dashboard" on the left sidebar. Arrange the graphs and trends
+                        in a layout you wish to save. Then click "Save" on the top bar. You will be prompted for a
+                        name to easily recognise this configuration later. After entering a name, the system will
+                        tell you whether it saved successfully or not.
+                    </p>
+                    <p>
+                        You can now go back to the "Saved Configurations" page to see your newly saved configuration.
+                        Click the "Load" button to load in the configuration, and then click the "Dashboard" button on
+                        the left sidebar to see the dashboard in the same layout that you saved it in.
+                    </p>
+                </div>
+                 
+                <div id="dataCategoryInfo">
+                    <h2>
+                        <i class="glyphicon glyphicon-paperclip"></i>  Data Categories
+                    </h2>
+                    
+                    <h3>What Is It?</h3>
+                    <p>
+                        The data categories page allows an overview of the types of data that the dashboard
+                        can display. It lists things such as "Crime", "Economy", and "Health".
+                    </p>
+                    
+                    <h3>How Do I Use It?</h3>
+                    <p>
+                        The data categories page can be accessed by clicking "Data Categories" on the left sidebar.
+                    </p>
+                    <p>
+                        This will then display a list of all the available categories. Clicking on a particular category will
+                        display a list of all graphs that belong to that category. It will also display statistical information
+                        next to graph, where available.
+                    </p>
+                </div>
+                 
+                <div id="exportToPdfInfo">
+                    <h2>
+                        <i class="glyphicon glyphicon-export"></i> Export To PDF
+                    </h2>
+                    
+                    <h3>What Is It?</h3>
+                    <p>
+                        The "Export To PDF" tool allows you to download the current layout of the dashboard as a PDF file.
+                    </p>
+                    
+                    <h3>How Do I Use It?</h3>
+                    <p>
+                        After arranging the dashboard in your preferred format (or after loading a saved configuration), click
+                        the "Export To PDF" button on the top bar. This will process the current layout, build the PDF file, and
+                        start the download. You may need to accept the download in your browser before the download begins.
+                    </p>
+                    <p>
+                        The format of these PDF files is still a work in progress, and may require some tweaking to get the layout
+                        that looks best.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

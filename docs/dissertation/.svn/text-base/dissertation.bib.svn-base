@@ -1,0 +1,31 @@
+@book{Alice,
+  author    = "Carroll, L.", 
+  title     = "Alice's Adventures in Wonderland", 
+  publisher = "Macmillan", 
+  year      = "1865"
+}
+@misc{AngularWebpage,
+  title = {AngularJS Homepage},
+  howpublished = {\url{https://angularjs.org/}},
+  note = {Accessed: 2016-03-16}
+}
+@misc{d3Webpage,
+  title = {D3.js Homepage},
+  howpublished = {\url{https://d3js.org/}},
+  note = {Accessed: 2016-03-16}
+}
+@misc{CrichtonInstitute,
+  title = {Crichton Institute Homepage},
+  howpublished = {\url{http://crichtonobservatory.org.uk/}},
+  note = {Accessed: 2016-03-18}
+}
+@misc{LondonDashbard,
+  title = {London Dashboard},
+  howpublished = {\url{http://data.london.gov.uk/}},
+  note = {Accessed: 2016-03-18}
+}
+@misc{DublinDashboard,
+  title = {Dublin Dashboard},
+  howpublished = {\url{http://www.dublindashboard.ie/pages/index/},
+  note = {Accessed: 2016-03-18}
+}
